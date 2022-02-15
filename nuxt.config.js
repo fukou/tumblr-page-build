@@ -30,6 +30,21 @@ export default {
         content:
           'A page builder for Tumblr. Easily edit the content and colors for the users.'
       },
+      { property: 'og:image', content: '/static/social.png' },
+      { property: 'twitter:card', content: 'summary_large_image' },
+      {
+        property: 'twitter:title',
+        content: 'Tumblr Page Builder'
+      },
+      {
+        property: 'twitter:description',
+        content:
+          'A page builder for Tumblr. Easily edit the content and colors for the users.'
+      },
+      {
+        property: 'twitter:image',
+        content: '/static/social.png'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
@@ -51,7 +66,8 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/color-picker.js', mode: 'client' },
-    { src: '~/plugins/overlayscrollbars.js', mode: 'client' }
+    { src: '~/plugins/overlayscrollbars.js', mode: 'client' },
+    { src: '~/plugins/prism' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -1,13 +1,14 @@
 <template>
   <div>
-    <ui-modal v-show="isModalVisible" @close="closeModal"> </ui-modal>
+    <ui-modal v-show="isModalVisible" @close="closeModal">
+    </ui-modal>
     <div class="bg-gray-100 h-screen w-full">
       <div class="grid grid-cols-1 md:grid-cols-4 w-full overflow-hidden">
         <overlay-scrollbars>
           <div
             class="header bg-gray-100 h-auto md:h-screen flex flex-col text-gray-800"
           >
-            <div class="w-full flex flex-col z-20">
+            <div class="w-full h-full flex flex-col z-20">
               <!-- back to main page  -->
               <div class="sticky top-0 border-b-2 py-4 px-8 z-20 bg-gray-100">
                 <button
@@ -34,7 +35,7 @@
                 </button>
               </div>
 
-              <div class="pt-8 pb-8 md:py-4 px-8 md:px-6">
+              <div class="pt-8 pb-8 md:py-4 px-8 md:pt-8 md:pb-32 grow">
                 <!-- https://www.storyblok.com/tp/vue-dynamic-component-from-json -->
                 <template v-for="block in commissions">
                   <component
@@ -75,11 +76,28 @@ export default {
     commissions() {
       return commissions;
     },
+    isHTML() {
+      return `
+      <!DOCTYPE html>
+      <head>
+        <title>{Title}</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="color-scheme" content="light dark" />
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
+      </head>
+      <body>
+         
+      </body>
+      </html>`;
+    },
   },
-  head () {
+  head() {
     return {
-      title: 'Commission Page',
-    }
+      title: "Commission Page",
+    };
   },
   methods: {
     change() {
@@ -92,6 +110,9 @@ export default {
       this.isModalVisible = false;
     },
   },
+  mounted() {
+    Prism.highlightAll();
+  },
 };
 </script>
 
@@ -99,4 +120,13 @@ export default {
 body {
   font-family: "Be Vietnam Pro", sans-serif;
 }
+
+pre {
+  @apply rounded-md my-2;
+}
+
+code[class*="language-"] {
+  @apply whitespace-pre-line;
+}
+
 </style>
