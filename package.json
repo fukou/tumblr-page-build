@@ -17,7 +17,7 @@
     "nuxt": "^2.15.7",
     "one-colorpicker": "^1.0.12",
     "overlayscrollbars-vue": "^0.2.2",
-    "prismjs": "^1.26.0"
+    "prismjs": "^1.27.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^4.2.0",
